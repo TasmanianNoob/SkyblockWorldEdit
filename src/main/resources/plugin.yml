@@ -1,0 +1,18 @@
+name: SkyblockWorldEdit
+version: ${project.version}
+main: net.tribalmc.skyblockworldedit.SkyblockWorldEdit
+softdepend: [ ASkyBlock, FabledSkyBlock, IridiumSkyblock, BSkyBlock, uSkyBlock, SuperiorSkyblock2, AsyncWorldEdit, FastAsyncWorldEdit, Vault, WorldEdit]
+authors: [ TasmanianNoob ]
+description: ${project.description}
+commands:
+  replace:
+    usage: /<command>
+  set:
+    usage: /<command>
+  sbwe:
+    usage: /<command>
+    aliases: [skyblockworldedit, wehelp, helpwe]
+  assistancecommand:
+    usage: /<command>
+  undo:
+    usage: /<command>

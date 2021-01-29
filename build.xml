@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<project name="SkyblockWorldEdit-1.0.0" default="Build">
+
+    <!-- To make it easier to develop on multiple computers, I included three
+        paths to your test server below. Change the ones that are relevant for you.
+        Also make sure you change the name="Orion" above to the name of your plugin. -->
+
+    <!-- Your MC test server location for Windows -->
+    <condition property="serverPath"
+               value="C:\Users\Charlie\Desktop\Test Server - Copy">
+        <os family="windows" />
+    </condition>
+
+    <!-- Ninja: Read your pom.xml file to find the Foundation version we will
+        be using -->
+    <xmlproperty file="pom.xml" prefix="pom" keeproot="false" />
+
+    <!-- Finally, compile the plugin -->
+    <target name="Build">
+        <jar jarfile="${serverPath}\plugins\${ant.project.name}.jar"
+             basedir="./target/classes/" includes="**/*">
+
+            <!-- Ant can include other plugin's classes however it cannot repackage
+                them. By default we use the local Foundation library cached in your m2 folder
+                used by Maven However, if you have Foundation downloaded from github.com/kangarko/foundation
+                you can just use the second line instead to include its source code within
+                this plugin directly, just make sure you have Foundation in the same workspace
+                folder where you have this plugin. -->
+            <zipgroupfileset
+                    dir="${user.home}/.m2/repository/com/github/simplix-softworks/simplixstorage/3.2.1/"
+                    includes="**/*simplixstorage-3.2.1.jar"/>
+            <zipgroupfileset
+                    dir="${user.home}/.m2/repository/com/esotericsoftware/yamlbeans/yamlbeans/1.13/"
+                    includes="**/*yamlbeans-1.13.jar"/>
+            <zipgroupfileset
+                    dir="${user.home}/.m2/repository/org/json/json/20190722/"
+                    includes="**/*json-20190722.jar"/>
+            <zipgroupfileset
+                    dir="${user.home}/.m2/repository/it/unimi/dsi/fastutil/8.3.1/"
+                    includes="**/*fastutil-8.3.1.jar"/>
+            <zipgroupfileset
+                    dir="${user.home}/.m2/repository/org/jetbrains/annotations/18.0.0/"
+                    includes="**/*annotations-18.0.0.jar"/>
+            <!-- <fileset dir="../Foundation/target/classes" /> -->
+        </jar>
+    </target>
+</project>
