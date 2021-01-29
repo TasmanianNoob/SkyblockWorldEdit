@@ -69,6 +69,7 @@ public final class SkyblockWorldEdit extends JavaPlugin {
 			return;
 		}
 		
+		
 		if (pluginManager.isPluginEnabled("IridiumSkyblock"))
 		{
 			System.out.println("Found IridiumSkyblock: Hooking");
