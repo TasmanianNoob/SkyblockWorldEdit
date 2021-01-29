@@ -12,7 +12,5 @@ commands:
   sbwe:
     usage: /<command>
     aliases: [skyblockworldedit, wehelp, helpwe]
-  assistancecommand:
-    usage: /<command>
   undo:
     usage: /<command>

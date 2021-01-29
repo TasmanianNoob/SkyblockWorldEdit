@@ -5,7 +5,10 @@ import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import com.wasteofplastic.askyblock.Island;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
-import net.tribalmc.skyblockworldedit.commands.*;
+import net.tribalmc.skyblockworldedit.commands.ReplaceCommand;
+import net.tribalmc.skyblockworldedit.commands.SBWECommand;
+import net.tribalmc.skyblockworldedit.commands.SetCommand;
+import net.tribalmc.skyblockworldedit.commands.UndoCommand;
 import net.tribalmc.skyblockworldedit.hooks.*;
 import net.tribalmc.skyblockworldedit.listeners.PlayerQuitListener;
 import net.tribalmc.skyblockworldedit.utils.Utils;
@@ -136,7 +139,6 @@ public final class SkyblockWorldEdit extends JavaPlugin {
 		getCommand("set").setExecutor(new SetCommand());
 		getCommand("replace").setExecutor(new ReplaceCommand());
 		getCommand("sbwe").setExecutor(new SBWECommand());
-		getCommand("assistancecommand").setExecutor(new AssistCommand());
 		getCommand("undo").setExecutor(new UndoCommand());
 	}
 	
