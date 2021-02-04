@@ -1,0 +1,19 @@
+permission: skyblockworldedit.use
+use-economy: true
+undo-refund: '50.0'
+default-price-per-block: '10.0'
+unique-block-price:
+  DIAMOND_BLOCK: '12.5'
+place-blacklist:
+  - CHEST
+  - TRAPPED_CHEST
+  - BED
+disabled-worlds:
+  - disabled_world
+default-blocks-placeable: '100'
+groups:
+  gold: 400
+  iron: 300
+  diamond: 500
+  tribalplus: '500'
+  stone: 200

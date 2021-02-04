@@ -18,7 +18,6 @@ import org.primesoft.asyncworldedit.api.worldedit.ICancelabeEditSession;
 import org.primesoft.asyncworldedit.api.worldedit.IThreadSafeEditSession;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -45,13 +44,13 @@ public final class AsyncWorldEdit implements IWorldEdit
 			e.printStackTrace();
 		}
 		
-		final IThreadSafeEditSession editSession = ((IAsyncEditSessionFactory) SkyblockWorldEdit.getWorldEditPlugin().getWorldEdit().getEditSessionFactory()).getThreadSafeEditSession(world, maxBlocks);
+		final IThreadSafeEditSession editSession = ((IAsyncEditSessionFactory) SkyblockWorldEdit.getWorldEditPlugin().getWorldEdit().getEditSessionFactory()).getThreadSafeEditSession(world, maxBlocks, SkyblockWorldEdit.getWorldEditPlugin().wrapPlayer(Bukkit.getPlayer(playerUUID)));
 		
 		final IPlayerEntry playerEntry = SkyblockWorldEdit.getAsyncWorldEdit().getPlayerManager().getPlayer(playerUUID);
 		final SetAction pasteAction = new SetAction(region, new BaseBlock(block.getId()));
 		
 		SkyblockWorldEdit.getAsyncWorldEdit().getBlockPlacer().performAsAsyncJob(editSession, playerEntry, "SkyBlockWorldEdit Pasting", pasteAction);
-		Objects.requireNonNull(SkyblockWorldEdit.getWorldEditPlugin().getWorldEdit().getSessionManager().findByName(Bukkit.getPlayer(playerUUID).getName())).remember((EditSession) editSession);
+		SkyblockWorldEdit.getWorldEditPlugin().getWorldEdit().getSessionManager().findByName(Bukkit.getPlayer(playerUUID).getName()).remember((EditSession) editSession);
 	}
 	
 	@Override
@@ -69,7 +68,7 @@ public final class AsyncWorldEdit implements IWorldEdit
 			e.printStackTrace();
 		}
 		
-		final IThreadSafeEditSession editSession = ((IAsyncEditSessionFactory) SkyblockWorldEdit.getWorldEditPlugin().getWorldEdit().getEditSessionFactory()).getThreadSafeEditSession(world, maxBlocks);
+		final IThreadSafeEditSession editSession = ((IAsyncEditSessionFactory) SkyblockWorldEdit.getWorldEditPlugin().getWorldEdit().getEditSessionFactory()).getThreadSafeEditSession(world, maxBlocks, SkyblockWorldEdit.getWorldEditPlugin().wrapPlayer(Bukkit.getPlayer(playerUUID)));
 		
 		final Set<BaseBlock> replacedBlocks = new HashSet<>();
 		
@@ -80,7 +79,7 @@ public final class AsyncWorldEdit implements IWorldEdit
 		final ReplaceAction replaceAction = new ReplaceAction(region, replacedBlocks, new BaseBlock(block.getId()));
 		
 		SkyblockWorldEdit.getAsyncWorldEdit().getBlockPlacer().performAsAsyncJob(editSession, playerEntry, "SkyBlockWorldEdit Replacing", replaceAction);
-		Objects.requireNonNull(SkyblockWorldEdit.getWorldEditPlugin().getWorldEdit().getSessionManager().findByName(Bukkit.getPlayer(playerUUID).getName())).remember((EditSession) editSession);
+		SkyblockWorldEdit.getWorldEditPlugin().getWorldEdit().getSessionManager().findByName(Bukkit.getPlayer(playerUUID).getName()).remember((EditSession) editSession);
 	}
 	
 	private final static class SetAction implements IFuncParamEx<Integer, ICancelabeEditSession, MaxChangedBlocksException>
@@ -123,6 +122,8 @@ public final class AsyncWorldEdit implements IWorldEdit
 		{
 			editSession.replaceBlocks(region, replaceBlocks, block);
 			editSession.flushQueue();
+			
+			replaceBlocks.clear();
 			
 			return editSession.getBlockChangeCount();
 		}

@@ -1,0 +1,21 @@
+no-permission: '&cSorry, you are unable to do this.'
+not-player: '&cSorry, you are unable to do this.'
+not-on-island: '&cSorry, some of your region is not on your island.'
+no-region: '&cSorry, you don''t have your region set.'
+disabled-world: '&cSorry, you can''t use worldedit in this world.'
+invalid-block: '&cSorry, that block is invalid.'
+too-large-region: '&cSorry, your region is too large.'
+not-enough-blocks: '&cSorry, you don''t have enough blocks to complete this worldedit.'
+not-enough-money: '&cSorry, you don''t have enough money to complete this worldedit.'
+disabled-block: '&cSorry, that block is disabled from being used with worldedit.'
+no-undo-available: '&cSorry, you don''t have any undo''s available.'
+set-usage: '&c/set <block>'
+replace-usage: '&c/replace <replaced-blocks> <block>'
+files-reloaded: '&aSuccessfully reloaded the config.yml and messages.yml!'
+enough-money: '&aYou successfully completed this worldedit, it cost you %cost%.'
+eco-disabled: '&aYou successfully completed this worldedit.'
+undo-refund: '&aYou successfully undid your most recent worldedit, you got %refund% (%refund_percentage%).'
+undo-eco-disabled: '&aYou successfully undid your most recent worldedit.'
+help-command:
+  - help
+  - me

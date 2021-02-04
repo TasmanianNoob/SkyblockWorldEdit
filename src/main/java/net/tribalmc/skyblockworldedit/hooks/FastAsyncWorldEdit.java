@@ -75,6 +75,8 @@ public final class FastAsyncWorldEdit implements IWorldEdit
 		editSession.replaceBlocks(region, blocksReplaced, new BaseBlock(block.getId()));
 		editSession.flushQueue();
 		
+		blocksReplaced.clear();
+		
 		SkyblockWorldEdit.getWorldEditPlugin().getSession(Bukkit.getPlayer(playerUUID)).remember(editSession);
 	}
 }

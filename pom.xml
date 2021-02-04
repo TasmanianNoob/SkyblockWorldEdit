@@ -52,19 +52,19 @@
                                 </relocation>
                                 <relocation>
                                     <pattern>org.intellij.lang</pattern>
-                                    <shadedPattern>com.tasmaniannoob.orbitcore.shaded</shadedPattern>
+                                    <shadedPattern>net.tribalmc.skyblockworldedit.shaded</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>org.jetbrains</pattern>
-                                    <shadedPattern>com.tasmaniannoob.orbitcore.shaded</shadedPattern>
+                                    <shadedPattern>net.tribalmc.skyblockworldedit.shaded</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>org.json</pattern>
-                                    <shadedPattern>com.tasmaniannoob.orbitcore.shaded</shadedPattern>
+                                    <shadedPattern>net.tribalmc.skyblockworldedit.shaded</shadedPattern>
                                 </relocation>
                                 <relocation>
                                     <pattern>com.esotericsoftware</pattern>
-                                    <shadedPattern>com.tasmaniannoob.orbitcore.shaded</shadedPattern>
+                                    <shadedPattern>net.tribalmc.skyblockworldedit.shaded</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

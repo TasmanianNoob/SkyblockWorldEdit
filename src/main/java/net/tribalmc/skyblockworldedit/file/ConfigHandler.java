@@ -36,15 +36,11 @@ public final class ConfigHandler
 		file.setDefault("undo-refund", 50.0);
 		file.setDefault("default-price-per-block", 10.0);
 		file.setDefault("unique-block-price." + Material.DIAMOND_BLOCK, 12.5);
-		
+
 		file.setDefault("place-blacklist", new Material[] { Material.CHEST, Material.TRAPPED_CHEST, Material.BED });
 		file.setDefault("disabled-worlds", new String[] { "disabled_world" });
 		
 		file.setDefault("default-blocks-placeable", 100);
 		file.setPathPrefix("groups");
-		file.setDefault("stone", 200);
-		file.setDefault("iron", 300);
-		file.setDefault("gold", 400);
-		file.setDefault("diamond", 500);
 	}
 }
